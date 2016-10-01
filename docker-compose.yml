@@ -1,9 +1,18 @@
 version: '2'
 services:
-  db:
-    build: ./docker/db
-    env_file: ./.env
+  mysql:
+    image: mysql:latest
+    env_file: .env
     volumes:
     - ./db/mysql:/var/lib/mysql
     ports:
-    - "3333:3306"
+    - '3307:3306'
+  web:
+    build: .
+    env_file: .env
+    volumes:
+    - .:/app
+    ports:
+    - '3001:3000'
+    depends_on:
+    - mysql
