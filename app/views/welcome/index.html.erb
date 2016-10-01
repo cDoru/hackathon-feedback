@@ -1,2 +1,2 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h2>Welcome to the feedback application</h2>
+<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path unless current_user%>
