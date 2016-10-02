@@ -1,7 +1,7 @@
 FROM ruby:2.3
 
-ADD Gemfile /app/
-ADD Gemfile.lock /app/
+COPY Gemfile /app/
+COPY Gemfile.lock /app/
 
 RUN gem install bundler && \
     cd /app ; bundle install --binstubs
