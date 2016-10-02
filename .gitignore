@@ -18,7 +18,6 @@
 
 # Ignore environment config files
 .env.development
-.env.test
 .env
 
 # Ignore MySQL container volume
