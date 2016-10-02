@@ -23,3 +23,5 @@
 
 # Ignore MySQL container volume
 /db/mysql
+
+/.idea/*
