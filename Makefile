@@ -13,3 +13,9 @@ init_db:
 		bin/rails db:reset
 		bin/rails db:environment:set RAILS_ENV=test
 		bin/rails db:reset RAILS_ENV=test
+
+feature_specs:
+		rspec spec/features --options .features
+
+specs:
+		rspec spec/
