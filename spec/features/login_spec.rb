@@ -1,10 +1,10 @@
 require 'feature_helper'
 
 feature 'Logging in', type: :feature do
-  given(:user) { FactoryGirl.create(:user) }
+  given!(:user) { FactoryGirl.create(:user) }
 
   background do
-    login_as(user, scope: user)
+    login_as(user, scope: :user)
   end
 
   scenario 'When I visit the home page' do

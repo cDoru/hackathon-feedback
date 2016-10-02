@@ -23,7 +23,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.include Warden::Test::Helpers
+  config.include(Warden::Test::Helpers)
 
   config.after(:each) do
     Warden.test_reset!
