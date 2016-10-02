@@ -4,7 +4,7 @@ services:
     image: mysql:latest
     env_file: .env
     volumes:
-    - ./db/mysql:/var/lib/mysql
+    - ./db/mysql/dev:/var/lib/mysql
     ports:
     - '3307:3306'
   web:
@@ -16,3 +16,10 @@ services:
     - '3001:3000'
     depends_on:
     - mysql
+  mysql_test:
+    image: mysql:latest
+    env_file: .env.test
+    volumes:
+    - ./db/mysql/test:/var/lib/mysql
+    ports:
+    - '3308:3306'

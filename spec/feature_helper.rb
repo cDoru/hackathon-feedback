@@ -5,6 +5,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'capybara/rails'
 
 Capybara.default_driver = :selenium
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -19,4 +22,6 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include Warden::Test::Helpers
 end
