@@ -1,18 +1,15 @@
-.PHONY: setup install_bundler
+.PHONY: setup init_db
 
-UNAME := $(shell uname -s)
-ifeq ($(UNAME),Darwin)
-BUNDLE_INSTALL_CMD = gem install bundler -n /usr/local/bin
-else
-BUNDLE_INSTALL_CMD = gem install bundler
-endif
-
-setup: | install_bundler
+setup:
 		brew install mysql
 		gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 		\curl -sSL https://get.rvm.io | bash -s stable --ruby
-		bundle install
+		gem install bundler
 		docker-compose build
+		cp .env.example .env
 
-install_bundler:
-		$(BUNDLE_INSTALL_CMD)
+init_db:
+		docker-compose up -d
+		bin/rails db:reset
+		bin/rails db:environment:set RAILS_ENV=test
+		bin/rails db:reset RAILS_ENV=test
