@@ -1,7 +1,7 @@
 version: '2'
 services:
   mysql:
-    image: mysql:latest
+    build: ./docker/db
     env_file: .env
     volumes:
     - ./db/mysql/dev:/var/lib/mysql
@@ -17,7 +17,7 @@ services:
     depends_on:
     - mysql
   mysql_test:
-    image: mysql:latest
+    build: ./docker/db
     env_file: .env.test
     volumes:
     - ./db/mysql/test:/var/lib/mysql
