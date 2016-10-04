@@ -9,4 +9,5 @@
     <%= text_area_tag(:description, nil, placeholder: 'What was your observation?') %>
     <%= hidden_field_tag(:subject_id, @subject.id) %>
     <button class="button button-full" type="submit">Send feedback</button>
-  <% end %>
+    <%= hidden_field_tag(:feedback_request_id, @feedback_request ? @feedback_request.id : nil) %>
+<% end %>

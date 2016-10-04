@@ -3,7 +3,7 @@ class FeedbackRequestController < ApplicationController
     #params.permit(:invitees)
     invitees = params[:invitees]
 
-    @feedback_request = FeedbackRequest.create!(requester: current_user)
+    @feedback_request = FeedbackRequest.create!(title: title, description: description, requester: current_user)
     invitees.each do |invitee|
       @feedback_request.invitees << User.find_by(id: invitee)
     end
@@ -12,8 +12,5 @@ class FeedbackRequestController < ApplicationController
 
   def new
     @users = User.where.not(id: current_user.id)
-  end
-
-  def show
   end
 end

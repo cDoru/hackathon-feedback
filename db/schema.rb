@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161004125554) do
 
-  create_table "feedback_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "feedback_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string   "title"
     t.text     "description",  limit: 65535
     t.integer  "goal_id"
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20161004125554) do
     t.index ["requester_id"], name: "index_feedback_requests_on_requester_id", using: :btree
   end
 
-  create_table "feedback_requests_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "feedback_requests_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.integer "feedback_request_id"
     t.integer "user_id"
     t.index ["feedback_request_id"], name: "index_feedback_requests_users_on_feedback_request_id", using: :btree
     t.index ["user_id"], name: "index_feedback_requests_users_on_user_id", using: :btree
   end
 
-  create_table "feedbacks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "feedbacks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.text     "description",         limit: 65535
     t.integer  "rating"
     t.integer  "goal_id"
@@ -45,14 +45,16 @@ ActiveRecord::Schema.define(version: 20161004125554) do
     t.index ["subject_id"], name: "index_feedbacks_on_subject_id", using: :btree
   end
 
-  create_table "goals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "goals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string   "title"
     t.text     "description", limit: 65535
+    t.integer  "owner_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["owner_id"], name: "index_goals_on_owner_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string   "email",              default: "", null: false
     t.string   "name",               default: "", null: false
     t.integer  "sign_in_count",      default: 0,  null: false

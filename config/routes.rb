@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   post 'feedback_request/create'
 
+  get 'goal/index'
+
   get 'feedback_request/new'
 
-  get 'feedback_request/:id', to: 'request#show', as: 'feedback_request'
+  post 'goal/create'
+
+  get 'feedback/:id', to: 'feedback#show', as: 'feedback'
+
+  get 'goal/new'
 
   get 'feedback/new'
 
