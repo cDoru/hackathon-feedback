@@ -2,17 +2,22 @@
 
 <%= form_tag(feedback_request_create_path) do %>
 
-  <h1>Whom do you want feedback from?</h1>
-  <ul>
-    <% @users.each do |user| %>
-        <li>
-          <%= check_box_tag 'invitees[]', user.id -%>
-          <%= h user.name -%>
-    <% end %>
-  </ul>
     <%= text_field_tag(:title, nil, placeholder: 'Why do you want feedback?') %>
     <%= text_area_tag(:description, nil, placeholder: 'Do you want to describe further?') %>
 
+  <h1>Whom do you want feedback from?</h1>
+  <ul>
+    <% @users.each do |user| %>
+        <li class="card card-checkbox">
+          <%= check_box_tag 'invitees[]', user.id, false, :id => "invitee_#{user.id}" -%>
+          <div>
+          <%= label_tag "invitee_#{user.id}", user.name -%>
+          </div>
+        </li>
+    <% end %>
+  </ul>
 
-    <%= submit_tag %>
+
+
+    <button class="button" type="submit">Send request</button>
 <% end %>
