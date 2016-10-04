@@ -1,5 +1,5 @@
-<%=
-@list.each do |item|
-  item.name
-end
-%>
+<ul>
+  <% @list.each do |item| %>
+    <li><%= link_to item.name, user_path(item) %></li>
+<% end %>
+</ul>

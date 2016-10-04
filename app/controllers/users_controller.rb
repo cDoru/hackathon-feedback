@@ -4,4 +4,10 @@ class UsersController < ApplicationController
 
     @list = User.where('name like ?', "%#{search_query}%")
   end
+
+  def show
+    #add error handling
+
+    @user = User.find_by(id: params[:id])
+  end
 end

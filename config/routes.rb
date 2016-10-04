@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get 'feedback/new'
+
+  post 'feedback/create'
+
+  get 'feedback/show'
+
   get 'users/search'
+
+  get 'users/:id', to: 'users#show', as: 'user'
 
   get 'dashboard/index'
 
