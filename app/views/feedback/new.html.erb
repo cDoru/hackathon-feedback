@@ -1,4 +1,6 @@
-<h1>Feedback for <%= @subject.name %></h1>
+<h1>Feedback
+  <%= @feedback_request ? " requested from " : " for " %>
+  <%= @subject.name %></h1>
 
 <%= form_tag(feedback_create_path) do %>
     <select name="rating">
