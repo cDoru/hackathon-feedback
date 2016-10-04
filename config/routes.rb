@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'feedback_request/create'
+
+  get 'feedback_request/new'
+
+  get 'feedback_request/:id', to: 'request#show', as: 'feedback_request'
+
   get 'feedback/new'
 
   post 'feedback/create'
