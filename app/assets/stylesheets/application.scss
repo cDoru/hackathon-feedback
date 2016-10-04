@@ -151,6 +151,34 @@ h1 {
   display: block;
 }
 
+.card-checkbox {
+  position: relative;
+
+  div {
+    padding: 1rem 1rem 1rem 1rem;
+    margin: -1rem;
+  }
+
+  label {
+    display: inline-block;
+    margin: -1rem;
+    padding: 1rem;
+    padding-left: 3rem;
+    width: 94%;
+  }
+
+  input {
+    position: absolute;
+    top: 1.2rem;
+
+    &:checked ~ div
+    {
+      border: solid 2px #285DAB;
+      padding: 0.8rem;
+    }
+  }
+}
+
 textarea, input {
   border: 1px solid #CCC;
   padding: 1rem;
