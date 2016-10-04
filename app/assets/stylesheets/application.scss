@@ -51,7 +51,19 @@ body {
 nav {
   background: #FFF;
   border-bottom: 1px solid #DDD;
-  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 1.4rem 3rem;
+
+  .nav-item {
+    background: purple;
+    display: block;
+    height: 2rem;
+    padding: 1rem;
+    width: 2rem;
+  }
 }
 
 main {
