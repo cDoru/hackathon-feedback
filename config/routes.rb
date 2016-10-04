@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'feedback_request/new'
 
   post 'goal/create'
-  
+
+  get 'goal/new'
+
   get 'feedback/new'
 
   post 'feedback/create'
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   get 'feedback/show'
 
   get 'feedback/:id', to: 'feedback#show', as: 'feedback'
-
-  get 'goal/new'
 
   get 'users/search'
 

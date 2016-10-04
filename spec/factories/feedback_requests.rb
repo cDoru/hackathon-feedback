@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :feedback_request do
-    title "MyString"
-    description "MyText"
+    title Faker::Hipster.sentence
+    description Faker::Yoda.quote
     association :requester, factory: :user
   end
 end
