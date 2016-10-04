@@ -1,2 +1,7 @@
-<h2>Welcome to the feedback application</h2>
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path unless current_user%>
+<section>
+  <header>
+    <h1>Welcome</h1>
+  </header>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "button" unless current_user%>
+</section>
+
