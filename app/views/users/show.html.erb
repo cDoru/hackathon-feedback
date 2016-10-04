@@ -7,13 +7,13 @@
 <h1>Feedback received: <%= @user.received_feedback.count%></h1>
 <ul>
   <% @user.received_feedback.each do |feedback| %>
-      <li><%= link_to "from #{feedback.author.name} (#{feedback.created_at})", feedback_show_path(id: feedback.id)%></li>
+      <li><%= link_to "from #{feedback.author.name} (#{feedback.created_at})", feedback_path(id: feedback.id)%></li>
   <% end %>
 </ul>
 
 <h1>Feedback given: <%= @user.given_feedback.count%></h1>
 <ul>
   <% @user.given_feedback.each do |feedback| %>
-      <li><%= link_to "to #{feedback.subject.name} (#{feedback.created_at})", feedback_show_path(id: feedback.id)%></li>
+      <li><%= link_to "to #{feedback.subject.name} (#{feedback.created_at})", feedback_path(id: feedback.id)%></li>
   <% end %>
 </ul>

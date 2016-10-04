@@ -1,4 +1,4 @@
-<h1>Dashboard</h1>
+<h1>Dashboard: <%=@user.name%></h1>
 
 <%= form_tag("/users/search", method: "get") do %>
     <%= text_field_tag(:q, nil, placeholder: 'Search colleagues') %>
@@ -9,6 +9,6 @@
 <h1>Pending Requests: <%= @user.pending_requests.count%></h1>
 <ul>
   <% @user.pending_requests.each do |request| %>
-      <li><%= link_to "Feedback Request from #{request.requester.name}", feedback_request_show_path(id: request.id)%></li>
+      <li><%= link_to "Feedback Request from #{request.requester.name}", feedback_new_path(feedback_request_id: request.id, user_id: @user.id)%></li>
   <% end %>
 </ul>
