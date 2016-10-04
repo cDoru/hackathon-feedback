@@ -4,3 +4,5 @@
 <%= form_tag("/users/search", method: "get") do %>
     <%= text_field_tag(:q, nil, placeholder: 'Search colleagues') %>
 <% end %>
+
+<%= link_to "Create Request", feedback_request_new_path %>

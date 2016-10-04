@@ -1,0 +1,15 @@
+<h1>Create a new Request</h1>
+
+<%= form_tag(feedback_request_create_path) do %>
+
+  <h1>Whom do you want feedback from?</h1>
+  <ul>
+    <% @users.each do |user| %>
+        <li>
+          <%= check_box_tag 'invitees[]', user.id -%>
+          <%= h user.name -%>
+    <% end %>
+
+    <%= submit_tag %>
+  </ul>
+<% end %>
