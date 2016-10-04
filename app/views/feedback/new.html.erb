@@ -1,0 +1,11 @@
+<h1>Feedback for <%= @subject.name %></h1>
+
+<%= form_tag(feedback_create_path) do %>
+    <% (1..10).each do |number| %>
+      <%= radio_button_tag(:rating, number) %>
+      <%= label_tag(:rating_1, number) %>
+    <% end %>
+    <%= text_area_tag(:description, nil, placeholder: 'Do you want to add something?') %>
+    <%= hidden_field_tag(:subject_id, @subject.id) %>
+    <%= submit_tag %>
+  <% end %>
