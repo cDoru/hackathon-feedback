@@ -1,4 +1,9 @@
-<h1>Create a new Request</h1>
+<h1>Create a new Feedback Request
+
+<% if @goal %>
+  for goal <%= @goal.title %><%= @goal.description %>
+  <% end %>
+</h1>
 
 <%= form_tag(feedback_request_create_path) do %>
 
@@ -16,7 +21,9 @@
         </li>
     <% end %>
   </ul>
-
+    <%= text_field_tag(:title, nil, placeholder: 'Why do you want feedback?') %>
+    <%= text_area_tag(:description, nil, placeholder: 'Do you want to describe further?') %>
+          <%= hidden_field_tag(:goald_id, @goal ? @goal.id : nil) %>
 
 
     <button class="button" type="submit">Send request</button>

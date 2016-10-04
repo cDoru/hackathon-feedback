@@ -9,10 +9,8 @@ class FeedbackController < ApplicationController
     #params.permit(:rating, :description, :subject_id)
 
     rating = params[:rating]
-    description = params[:description]
     subject_id = params[:subject_id]
     request_id  = params[:feedback_request_id]
-    title  = params[:title]
     description  = params[:description]
 
     @subject = User.find_by(id: subject_id)
