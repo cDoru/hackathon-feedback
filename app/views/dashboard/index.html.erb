@@ -1,8 +1,14 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
 
 <%= form_tag("/users/search", method: "get") do %>
     <%= text_field_tag(:q, nil, placeholder: 'Search colleagues') %>
 <% end %>
 
 <%= link_to "Create Request", feedback_request_new_path %>
+
+<h1>Pending Requests: <%= @user.pending_requests.count%></h1>
+<ul>
+  <% @user.pending_requests.each do |request| %>
+      <li><%= link_to "Feedback Request from #{request.requester.name}", feedback_request_show_path(id: request.id)%></li>
+  <% end %>
+</ul>
