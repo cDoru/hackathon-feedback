@@ -8,6 +8,12 @@
 
 require 'faker'
 
+users = []
 10.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email)
+  users << User.create(name: Faker::Name.name, email: Faker::Internet.email)
+end
+
+users.each do |user|
+  request = FeedbackRequest.create(title: "WTF?", description: "no idea", requester: user)
+  request.invitees << user
 end

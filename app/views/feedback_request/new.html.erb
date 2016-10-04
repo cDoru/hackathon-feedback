@@ -9,7 +9,10 @@
           <%= check_box_tag 'invitees[]', user.id -%>
           <%= h user.name -%>
     <% end %>
+  </ul>
+    <%= text_field_tag(:title, nil, placeholder: 'Why do you want feedback?') %>
+    <%= text_area_tag(:description, nil, placeholder: 'Do you want to describe further?') %>
+
 
     <%= submit_tag %>
-  </ul>
 <% end %>

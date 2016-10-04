@@ -1,5 +1,10 @@
 <h1>Feedback for <%= @subject.name %></h1>
 
+<% if @feedback_request %>
+    <h3><%= @feedback_request.title %></h3>
+    <p><%= @feedback_request.description %></p>
+<% end %>
+
 <%= form_tag(feedback_create_path) do %>
     <% (1..10).each do |number| %>
       <%= radio_button_tag(:rating, number) %>
@@ -7,5 +12,6 @@
     <% end %>
     <%= text_area_tag(:description, nil, placeholder: 'Do you want to add something?') %>
     <%= hidden_field_tag(:subject_id, @subject.id) %>
+    <%= hidden_field_tag(:feedback_request_id, @feedback_request ? @feedback_request.id : nil) %>
     <%= submit_tag %>
   <% end %>

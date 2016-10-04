@@ -1,6 +1,7 @@
 class FeedbackController < ApplicationController
   def new
     @subject = User.find_by(id: params[:user_id])
+    @feedback_request = FeedbackRequest.find_by(id: params[:feedback_request_id])
   end
 
   def create
@@ -10,10 +11,13 @@ class FeedbackController < ApplicationController
     rating = params[:rating]
     description = params[:description]
     subject_id = params[:subject_id]
+    request_id  = params[:feedback_request_id]
+    title  = params[:title]
+    description  = params[:description]
 
     @subject = User.find_by(id: subject_id)
-
-    @feedback = Feedback.create!(rating: rating, description: description, subject: @subject, author: current_user)
+    @feedback_request = FeedbackRequest.find_by(id: request_id)
+    @feedback = Feedback.create!(rating: rating, description: description, subject: @subject, author: current_user, feedback_request: @feedback_request)
   end
 
   def show
