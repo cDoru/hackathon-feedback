@@ -22,7 +22,7 @@ feature 'Creating feedback request', type: :feature do
 
     page.check(invitee.name)
 
-    click_on 'Save changes'
+    click_on 'Send request'
     expect(page).to have_content(invitee.name)
   end
 
@@ -37,7 +37,7 @@ feature 'Creating feedback request', type: :feature do
 
     page.check(invitee.name)
 
-    click_on 'Save changes'
+    click_on 'Send request'
     expect(page).to have_content(invitee.name)
   end
 end

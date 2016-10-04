@@ -21,10 +21,8 @@
         </li>
     <% end %>
   </ul>
-    <%= text_field_tag(:title, nil, placeholder: 'Why do you want feedback?') %>
-    <%= text_area_tag(:description, nil, placeholder: 'Do you want to describe further?') %>
-          <%= hidden_field_tag(:goald_id, @goal ? @goal.id : nil) %>
+  <%= hidden_field_tag(:goald_id, @goal ? @goal.id : nil) %>
 
 
-    <button class="button" type="submit">Send request</button>
+   <button class="button" type="submit">Send request</button>
 <% end %>
