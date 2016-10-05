@@ -1,7 +1,7 @@
 <h1>I have sent your request to</h1>
 
-<ul>
+
   <% @feedback_request.invitees.each do |invitee| %>
-      <li><%= link_to invitee.name, user_path(invitee)%></li>
+      <%= link_to invitee.name, user_path(invitee), class: 'card'%>
   <% end %>
-</ul>
+
