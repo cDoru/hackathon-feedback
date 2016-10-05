@@ -8,7 +8,7 @@ feature 'Logging in', type: :feature do
   end
 
   scenario 'When I visit the home page' do
-    visit '/home/index'
+    visit '/dashboard/index'
 
     expect(page).to have_content(user.name)
   end
