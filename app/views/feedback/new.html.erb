@@ -3,13 +3,28 @@
   <%= @subject.name %></h1>
 
 <%= form_tag(feedback_create_path) do %>
-    <select name="rating">
-    <% (1..10).each do |number| %>
-      <option value="<%= number %>"><%= number %></option>
-    <% end %>
-    </select>
+
+    <label for="number">Rating <output for="rating" id="rating">6</output></label>
+    <input type="range" name="rating" value="6" min="1" max="10" step="1" list="number" oninput="outputUpdate(value)"/>
+    <datalist id="number">
+      <% (1..10).each do |number| %>
+          <option value="<%= number %>"><%= number %></option>
+      <% end %>
+    </datalist>
+
+
+
+    <script>
+        function outputUpdate(vol) {
+            document.querySelector('#rating').value = vol;
+        }
+    </script>
+
     <%= text_area_tag(:description, nil, placeholder: 'What was your observation?') %>
     <%= hidden_field_tag(:subject_id, @subject.id) %>
     <button class="button button-full" type="submit">Send feedback</button>
     <%= hidden_field_tag(:feedback_request_id, @feedback_request ? @feedback_request.id : nil) %>
+
+
 <% end %>
+
