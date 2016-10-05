@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :feedback do
-    description "MyText"
+    description { Faker::Lorem.paragraph }
     rating 1
     association :author, factory: :user
     association :subject, factory: :user
