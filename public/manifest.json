@@ -1,0 +1,13 @@
+{
+  "name": "Feedback application",
+  "short_name": "Feedback app",
+  "icons": [{
+    "src": "images/no-image.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }],
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "866059508755",
+  "gcm_user_visible_only": true
+}

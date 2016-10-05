@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004125554) do
+ActiveRecord::Schema.define(version: 20161005123935) do
 
   create_table "feedback_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
     t.string   "title"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20161004125554) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["owner_id"], name: "index_goals_on_owner_id", using: :btree
+  end
+
+  create_table "notification_subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
+    t.string   "endpoint"
+    t.string   "auth_key"
+    t.string   "p256dh_key"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_subscriptions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
