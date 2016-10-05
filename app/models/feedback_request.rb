@@ -8,8 +8,12 @@ class FeedbackRequest < ApplicationRecord
     feedbacks.where(author: user).count == 0
   end
 
-  def pending_requests()
+  def pending_requests
     invitees.where.not(id: feedbacks.collect {|feedback| feedback.author.id})
+  end
+
+  def completion_percentage
+    feedbacks.count / invitees.count
   end
 end
 

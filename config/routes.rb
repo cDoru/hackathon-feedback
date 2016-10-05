@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'users/show_feedback'
 
+  get 'users/show_feedback_requests'
+
   get 'users/:id', to: 'users#show', as: 'user'
 
   get 'dashboard/index'

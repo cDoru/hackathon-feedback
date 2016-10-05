@@ -22,6 +22,10 @@ RSpec.describe FeedbackRequest, type: :model do
   it 'Feedback Pending' do
     expect(feedback_request.pending_requests.count).to eq 2
   end
+
+  it 'Completion Percentage' do
+    expect(feedback_request.completion_percentage).to eq 1/3
+  end
 end
 
 

@@ -13,4 +13,8 @@ class UsersController < ApplicationController
   def show_feedback
     @user = current_user
   end
+
+  def show_feedback_requests
+    @user = current_user
+  end
 end
