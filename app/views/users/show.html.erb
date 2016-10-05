@@ -1,2 +1,23 @@
 <h1><%= @user.name %></h1>
-<%= link_to "Give Feedback", feedback_new_path(user_id: @user.id), class: "button" %>
+<% if @user.goals.any? %>
+    <p class="give-feedback-text">Please select a goal you want to give feedback on.</p>
+    <% @user.goals.each do |goal| %>
+      <a href="<%=feedback_new_path(goal_id: goal.id) %>" class="linked-card card">
+        <h2><%= goal.title %></h2>
+        <p><%= goal.description %></p>
+        <span class="created-date"><%= time_ago_in_words goal.created_at %> ago</span>
+      </a>
+    <% end %>
+    <div class="card">
+      <p class="give-feedback-text">Do you want to give feedback unrelated to any goal?</p>
+      <%= link_to "Give feedback", feedback_new_path(user_id: @user.id), class: "button" %>
+    </div>
+<% else %>
+    <div class="card">
+      <header>
+        <h2><%= @user.name %> has no goals yet. </h2>
+      </header>
+      <p class="give-feedback-text">Do you want to give feedback anyway?</p>
+      <%= link_to "Give feedback", feedback_new_path(user_id: @user.id), class: "button" %>
+    </div>
+<% end %>

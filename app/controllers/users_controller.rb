@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    #add error handling
     @user = User.find_by(id: params[:id])
   end
 

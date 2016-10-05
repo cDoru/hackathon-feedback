@@ -2,6 +2,13 @@
   <%= @feedback_request ? " requested from " : " for " %>
   <%= @subject.name %></h1>
 
+<% if @goal.present? %>
+  <div class="card">
+    <h2><%= @goal.title %></h2>
+    <p><%= @goal.description %></p>
+    <span class="created-date"><%= time_ago_in_words @goal.created_at %> ago</span>
+  </div>
+<% end %>
 <%= form_tag(feedback_create_path) do %>
 
     <label for="number">Rating <output for="rating" id="rating">6</output></label>
