@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'users/search'
 
+  get 'users/show_feedback'
+
   get 'users/:id', to: 'users#show', as: 'user'
 
   get 'dashboard/index'
