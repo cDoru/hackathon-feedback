@@ -1,7 +1,13 @@
-<h1>I have sent your request to</h1>
+<h1>Your request has been send</h1>
+<div class="card">
+  <header>
+    <h2>The lucky ones</h2>
+  </header>
+  <ul>
+    <% @feedback_request.invitees.each do |invitee| %>
+        <li><%= invitee.name %></li>
+    <% end %>
+  </ul>
+</div>
 
-<ul class="card">
-  <% @feedback_request.invitees.each do |invitee| %>
-      <li class="card"><%= invitee.name %></li>
-  <% end %>
-</ul>
+<%= link_to "Go home", dashboard_index_path, class:'button'%>

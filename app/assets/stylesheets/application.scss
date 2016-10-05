@@ -160,12 +160,8 @@ h2 {
   display: block;
   cursor: pointer;
 
-  * {
-    cursor: pointer;
-  }
-
-  &:hover {
-    color: #285DAB;
+  li{
+    margin-left: 20px;
   }
 }
 
@@ -195,6 +191,14 @@ h2 {
     {
       border: solid 2px #285DAB;
     }
+  }
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: #285DAB;
   }
 }
 
