@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post 'goal/create'
 
+  get 'goal/new'
+
   get 'feedback/new'
 
   post 'feedback/create'
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   get 'feedback/show'
 
   get 'feedback/:id', to: 'feedback#show', as: 'feedback'
-
-  get 'goal/new'
 
   get 'users/search'
 
@@ -26,6 +26,4 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root to: 'welcome#index'
-
-  get 'home/index', to: 'home#index'
 end
