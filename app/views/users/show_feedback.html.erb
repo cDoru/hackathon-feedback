@@ -1,0 +1,6 @@
+<h1>Feedback for <%= @user.name %></h1>
+<ul>
+  <% @user.received_feedback.each do |feedback|%>
+      <li class="card"><%= "#{feedback.type} #{feedback.author.name} #{feedback.rating} #{feedback.description} #{feedback.created_at}" %></li>
+  <% end %>
+</ul>
