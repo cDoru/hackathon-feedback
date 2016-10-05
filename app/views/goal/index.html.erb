@@ -1,5 +1,6 @@
-<ul>
-  <% @goals.each do |goal| %>
-      <li><%= goal.title %></li>
-  <% end %>
-</ul>
+<h1>Your personal goals</h1>
+<a href="<%= goal_new_path %>" class="linked-card card">
+  <span class="plus-icon">+</span>
+  <span class="plus-icon-label">Create a new goal</span>
+</a>
+<%= render 'goals' %>

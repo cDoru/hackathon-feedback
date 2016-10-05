@@ -1,4 +1,4 @@
 <h1>Results for '<%= params[:q] %>'</h1>
 <% @list.each do |item| %>
-    <%= link_to item.name, user_path(item), class: "card" %>
+    <%= link_to item.name, user_path(item), class: 'linked-card card' %>
 <% end %>

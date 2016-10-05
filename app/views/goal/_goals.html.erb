@@ -1,0 +1,9 @@
+<ul>
+  <% @goals.each do |goal| %>
+      <li class="card">
+        <h2><%= goal.title %></h2>
+        <p><%= goal.description %></p>
+        <span class="created-date"><%= time_ago_in_words goal.created_at %> ago</span>
+      </li>
+  <% end %>
+</ul>
