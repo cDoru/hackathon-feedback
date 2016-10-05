@@ -1,0 +1,17 @@
+<h1>Feedback Requests <%= @user.name %></h1>
+<ul>
+  <% @user.requested_feedback.each do |request|%>
+      <h1>Feedback request: <%= request.title%> <%= request.created_at%> </h1>
+      <h3><%= request.completion_percentage * 100%>% completed</h3>
+      <ul>
+        <% request.feedbacks.each do |feedback| %>
+            <li class="card" style="background-color:palegreen;"><%= "#{feedback.author.name} #{feedback.rating} #{feedback.description} #{feedback.created_at}" %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% request.pending_requests.each do |invitee| %>
+            <li class="card" style="background-color:palevioletred;"><%= "Still waiting from #{invitee.name}" %></li>
+        <% end %>
+      </ul>
+  <% end %>
+</ul>

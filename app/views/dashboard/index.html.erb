@@ -12,3 +12,15 @@
       <li><%= link_to "Feedback Request from #{request.requester.name}", feedback_new_path(feedback_request_id: request.id, user_id: @user.id)%></li>
   <% end %>
 </ul>
+
+<% if @last_request %>
+  <h1>Your last feedback request: <%= @last_request.title%></h1>
+  <h3><%= @last_request.completion_percentage * 100%>% completed</h3>
+  <ul>
+    <% @last_request.feedbacks.each do |feedback| %>
+        <li class="card"><%= "#{feedback.author.name} #{feedback.rating} #{feedback.description} #{feedback.created_at}" %></li>
+    <% end %>
+  </ul>
+  <%= link_to "View all", users_show_feedback_requests_path%>
+<% end %>
+
