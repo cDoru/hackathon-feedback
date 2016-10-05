@@ -13,7 +13,7 @@ feature 'Creating feedback', type: :feature do
   scenario 'unsolicited' do
     description = Faker::Yoda.quote
     visit "/feedback/new?user_id=#{subject.id}"
-    page.select '9', :from => 'rating'
+    fill_in 'rating', with: 9
     fill_in 'description', with: description
 
     click_on 'Send feedback'
@@ -24,7 +24,7 @@ feature 'Creating feedback', type: :feature do
     description = Faker::Yoda.quote
 
     visit "/feedback/new?feedback_request_id=#{feedback_request.id}"
-    page.select '9', :from => 'rating'
+    fill_in 'rating', with: 9
     fill_in 'description', with: description
 
     click_on 'Send feedback'
@@ -35,7 +35,7 @@ feature 'Creating feedback', type: :feature do
     description = Faker::Yoda.quote
 
     visit "/feedback/new?goal_id=#{goal.id}"
-    page.select '9', :from => 'rating'
+    fill_in 'rating', with: 9
     fill_in 'description', with: description
 
     click_on 'Send feedback'
@@ -46,7 +46,7 @@ feature 'Creating feedback', type: :feature do
     description = Faker::Yoda.quote
 
     visit "/feedback/new?goal_id=#{goal.id}&user_id=#{subject.id}"
-    page.select '9', :from => 'rating'
+    fill_in 'rating', with: 9
     fill_in 'description', with: description
 
     click_on 'Send feedback'
@@ -57,7 +57,7 @@ feature 'Creating feedback', type: :feature do
     description = Faker::Yoda.quote
 
     visit "/feedback/new?goal_id=#{goal.id}&feedback_request_id=#{feedback_request.id}"
-    page.select '9', :from => 'rating'
+    fill_in 'rating', with: 9
     fill_in 'description', with: description
 
     click_on 'Send feedback'
