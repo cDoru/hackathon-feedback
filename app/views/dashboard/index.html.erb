@@ -4,7 +4,7 @@
     <%= text_field_tag(:q, nil, placeholder: 'Search colleagues') %>
 <% end %>
 
-<%= link_to "Create Request", feedback_request_new_path %>
+<%= link_to "Create Request", feedback_request_new_path, class: 'button' %>
 
 <h1>Pending Requests: <%= @user.pending_requests.count%></h1>
 <ul>
