@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'notification/subscribe'
+
+  post 'notification/unsubscribe'
+
   post 'feedback_request/create'
 
   get 'goal/index'
