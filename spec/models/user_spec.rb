@@ -10,8 +10,8 @@ RSpec.describe User, type: :model do
     end
     FactoryGirl.create(:feedback, author: user, feedback_request: @feedback_requests.first)
     @other_user = FactoryGirl.create(:user)
-    2.times.map {FactoryGirl.create(:feedback, author: user, subject: @other_user)}
-    4.times.map {FactoryGirl.create(:feedback, author: @other_user, subject: user)}
+    2.times {FactoryGirl.create(:feedback, author: user, subject: @other_user)}
+    4.times {FactoryGirl.create(:feedback, author: @other_user, subject: user)}
   end
 
   it 'Feedback Pending' do
